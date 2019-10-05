@@ -1,0 +1,9 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+   gtag('event', 'page_view', {
+        'send_to': 'AW-827055970',
+        'ecomm_prodid': _satellite.getVar('product: product ID'),
+        'ecomm_pagetype': _satellite.getVar('content: pageType'),
+        'ecomm_totalvalue': _satellite.getVar('purchase: revenue'),
+        'membertype': _satellite.getVar("member: sub segment")
+    });
+});

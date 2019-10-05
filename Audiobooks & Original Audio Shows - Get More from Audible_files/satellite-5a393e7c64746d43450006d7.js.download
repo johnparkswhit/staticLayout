@@ -1,0 +1,68 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  /*var custom_pixel_id = "1525815360977208";
+var custom_region_locale = "en_US";
+
+var custom_event_type = "Purchase";
+var custom_data_name_1 = "content_type";
+var param_data_value_1 = "product";
+var custom_data_name_2 = "content_ids";
+var param_data_value_2 = "";//will contain productId
+var custom_data_name_3 = "";
+var param_data_value_3 = "";
+var custom_data_name_4 = "";
+var param_data_value_4 = "";
+var custom_data_name_5 = "";
+var param_data_value_5 = "";
+
+
+var productArray = [];
+var productIDs = [];
+productArray = DTM.getVariable("product"); //returns the product[] in the above mentioned format
+var productLength = productArray.length != 0 ? productArray.length : 0;
+
+
+//*Loop through productArray and collect the productIDs
+    for (var i = 0; i < productLength; i++) {
+      var productInfo = productArray[i].productInfo;
+     
+      if (productInfo) {
+        if (productInfo.productID) {
+            productIDs.push(productInfo.productID);
+        }
+         
+      }
+    }
+
+param_data_value_2 = productIDs.toString();
+
+var local_data_name_array = [custom_data_name_1, custom_data_name_2, custom_data_name_3, custom_data_name_4, custom_data_name_5];
+var local_data_value_array = [param_data_value_1, param_data_value_2, param_data_value_3, param_data_value_4, param_data_value_5];
+
+var local_event_type = custom_event_type ? custom_event_type : 'PixelInitialized';
+
+var local_object = {};
+for (var i = 0; i < local_data_name_array.length; i++) {
+  if (local_data_name_array[i] && local_data_value_array[i]) {
+    local_object[local_data_name_array[i]] = local_data_value_array[i];
+  }
+}
+
+var custom_onload_function = function() {
+  window._fbq = window._fbq || [];
+  window._fbq.push(['addPixelId', custom_pixel_id]);
+  window._fbq.push(["track", local_event_type, local_object]);
+};
+
+var custom_onload_function_2 = function() {
+  window._fbq = window._fbq || [];
+  window._fbq.push(["track", local_event_type, local_object]);
+};
+
+if (!window._fbq) {
+  var local_region_locale = custom_region_locale ? custom_region_locale : 'en_US';
+  var local_scr_url = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'connect.facebook.net/' + local_region_locale + '/fbds.js';
+  DTM.loadScriptCallback(local_scr_url, custom_onload_function);
+} else {
+  custom_onload_function_2();
+}*/
+});

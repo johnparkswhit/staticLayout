@@ -1,0 +1,127 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function() {
+  var custom_conversion_id = "1072575868";
+  var param_conversion_label = "S4qMCKnHogcQ_Oq4_wM";
+  var param_conversion_value = "0";
+
+  // Start name and value options
+  var productArray = [];
+  var productArrayLength = 0;
+
+  productArray = DTM.getVariable("product");
+  productArrayLength = productArray.length != 0 ? productArray.length : 0;
+
+  var productIDArray = [];
+  var productPriceArray = [];
+
+  for (var i = 0; i < productArrayLength; i++) {
+      var productInfo = productArray[i].productInfo;
+      if (productInfo) {
+          if (productInfo.productID) {
+              productIDArray.push(productInfo.productID);
+          }
+          if (productInfo.price) {
+              productPriceArray.push(productInfo.price);
+          }
+      }
+  }
+
+  var param_name_1 = "ecomm_prodid";
+  var param_value_1 = productIDArray.join(","); //list of productIDs
+  var param_name_2 = "ecomm_pagetype";
+  var param_value_2 = DTM.getVariable("content: pageName");
+  var param_name_3 = "ecomm_pvalue";
+  var param_value_3 = productPriceArray.join(","); //list of product prices
+  var param_name_4 = "membertype";
+  var param_value_4 = DTM.getVariable("member: sub segment"); //customerID
+  var param_name_5 = "";
+  var param_value_5 = "";
+  var param_name_6 = "";
+  var param_value_6 = "";
+  var param_name_7 = "";
+  var param_value_7 = "";
+  var param_name_8 = "";
+  var param_value_8 = "";
+  var param_name_9 = "";
+  var param_value_9 = "";
+  var param_name_10 = "";
+  var param_value_10 = "";
+  var param_name_11 = "";
+  var param_value_11 = "";
+  var param_name_12 = "";
+  var param_value_12 = "";
+  var param_name_13 = "";
+  var param_value_13 = "";
+  var param_name_14 = "";
+  var param_value_14 = "";
+  var param_name_15 = "";
+  var param_value_15 = "";
+  var param_name_16 = "";
+  var param_value_16 = "";
+  var param_name_17 = "";
+  var param_value_17 = "";
+  var param_name_18 = "";
+  var param_value_18 = "";
+  var param_name_19 = "";
+  var param_value_19 = "";
+  var param_name_20 = "";
+  var param_value_20 = "";
+  var param_name_21 = "";
+  var param_value_21 = "";
+  var param_name_22 = "";
+  var param_value_22 = "";
+  var param_name_23 = "";
+  var param_value_23 = "";
+  var param_name_24 = "";
+  var param_value_24 = "";
+  var param_name_25 = "";
+  var param_value_25 = "";
+  var param_name_26 = "";
+  var param_value_26 = "";
+  var param_name_27 = "";
+  var param_value_27 = "";
+  var param_name_28 = "";
+  var param_value_28 = "";
+  var param_name_29 = "";
+  var param_value_29 = "";
+  var param_name_30 = "";
+  var param_value_30 = "";
+
+  local_conversion_label = "";
+  if (param_conversion_label) {
+      local_conversion_label = "&label=" + param_conversion_label;
+  }
+
+  if (
+      typeof param_conversion_value === "undefined" ||
+      param_conversion_value === ""
+  ) {
+      param_conversion_value = 0;
+  }
+
+  var local_array_name = [param_name_1, param_name_2, param_name_3, param_name_4, param_name_5, param_name_6, param_name_7, param_name_8, param_name_9, param_name_10, param_name_11, param_name_12, param_name_13, param_name_14, param_name_15, param_name_16, param_name_17, param_name_18, param_name_19, param_name_20, param_name_21, param_name_22, param_name_23, param_name_24, param_name_25, param_name_26, param_name_27, param_name_28, param_name_29, param_name_30];
+
+  var local_array_value = [param_value_1, param_value_2, param_value_3, param_value_4, param_value_5, param_value_6, param_value_7, param_value_8, param_value_9, param_value_10, param_value_11, param_value_12, param_value_13, param_value_14, param_value_15, param_value_16, param_value_17, param_value_18, param_value_19, param_value_20, param_value_21, param_value_22, param_value_23, param_value_24, param_value_25, param_value_26, param_value_27, param_value_28, param_value_29, param_value_30];
+
+  var local_part = "";
+  for (var i = 0; i < local_array_name.length; i++) {
+      if (local_array_name[i] && local_array_value[i]) {
+          local_part += ";" + local_array_name[i] + "=" + local_array_value[i];
+      }
+  }
+  local_part = local_part.substring(1);
+
+  var local_google_tag_params = encodeURIComponent(local_part);
+
+  var local_img_url =
+      ("https:" == document.location.protocol ? "https://" : "http://") +
+      "googleads.g.doubleclick.net/pagead/viewthroughconversion/" +
+      custom_conversion_id +
+      "/?value=" +
+      param_conversion_value +
+      local_conversion_label +
+      "&guid=ON&script=0&data=" +
+      local_google_tag_params;
+  DTM.imageRequest(local_img_url);
+})();
+});

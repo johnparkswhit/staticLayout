@@ -1,0 +1,16 @@
+var pixelID = '186889561908345';
+var locale = 'en_US' || 'en_US';
+(function(n) {
+    if (window.fbq) return;
+    n = window.fbq = function() {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!window._fbq) window._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    DTM.addScript('https://connect.facebook.net/' + locale + '/fbevents.js');
+})();
+fbq('init', pixelID);
+fbq('track', 'PageView');

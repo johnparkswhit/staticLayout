@@ -1,0 +1,18 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function() {
+  var pixelID = 'l5zpw';
+  var orderTotal = +'';
+  var orderQuantity = +'';
+
+  var scriptSource = '//' + 'platform.twitter.com/oct.js';
+
+  var callback = function() {
+      twttr.conversion.trackPid(pixelID, {
+          tw_sale_amount: orderTotal,
+          tw_order_quantity: orderQuantity
+      });
+  };
+
+  DTM.loadScriptCallback(scriptSource, callback); 
+})();
+});

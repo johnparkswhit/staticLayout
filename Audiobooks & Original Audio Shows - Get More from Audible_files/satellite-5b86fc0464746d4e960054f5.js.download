@@ -1,0 +1,64 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  var axel = Math.random() + "";
+var a = axel * 10000000000000;
+
+var customerSegment = DTM.getVariable("member: sub segment");
+var customerID = DTM.getVariable("member: ID");
+var pageURL = DTM.getVariable("tm: pageURL");
+var pageGroup = DTM.getVariable("tm: pageGroup");
+var pageName = DTM.getVariable("content: pageName");
+
+var actionCode = DTM.getVariable("tm: action_code");
+var timeStamp = DTM.getVariable("tm: timestamp");
+var categoryId = DTM.getVariable("tm: categoryId");
+
+var purchaseRevenue = DTM.getVariable("purchase: revenue");
+var isFirstOrder = DTM.getVariable("tm: isFirstOrder");
+
+var isExistingMember = DTM.getVariable("tm: isExistingMember");
+var hasMembership = DTM.getVariable("tm: hasMembership");
+var hasPurchasedMembership = DTM.getVariable("tm: hasPurchasedMembership");
+var isALCPurchase = DTM.getVariable("tm: isALCPurchase");
+var isFreeTrial = DTM.getVariable("tm: isFreeTrial");
+
+var product = [];
+var productIDs = [];
+var productNames = [];
+product = DTM.getVariable("product");
+var productLength = product.length != 0 ? product.length : 0;
+
+for (var i = 0; i < productLength; i++) {
+    var productInfo = product[i].productInfo;
+    if (productInfo) {
+        if (productInfo.productID) {
+            productIDs.push(productInfo.productID);
+        }
+        if (productInfo.name) {
+            productNames.push(productInfo.productName);
+        }
+    }
+}
+
+gtag('event', 'conversion', {
+    allow_custom_scripts: true,
+    'u1': productIDs,
+    'u2': productNames,
+    'u3': customerSegment,
+    'u4': isFirstOrder,
+    'u5': customerID,
+    'u6': pageGroup,
+    'u7': pageURL,
+    'u8': actionCode,
+    'u9': isExistingMember,    
+    'u10': pageName,
+    'u11': timeStamp,
+    'u12': categoryId,
+    'u13': isFreeTrial,
+    'u14': hasMembership,
+    'u15': purchaseRevenue,
+    'u16': hasPurchasedMembership,
+    'u17': isALCPurchase,
+    'send_to': 'DC-5164101/acquis/audib0+standard'
+  });
+
+});
